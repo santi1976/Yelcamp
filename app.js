@@ -21,7 +21,7 @@ const commentRoutes = require ("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb+srv://Santo:<210418.xx>@spv-dcede.gcp.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://Santo:<2104182E7878>@spv-dcede.gcp.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
     /* useUnifiedTopology: true */
 }).then(() => {
