@@ -23,7 +23,7 @@ const indexRoutes = require("./routes/index");
 
 mongoose.connect("mongodb+srv://Santo:<210418.xx>@spv-dcede.gcp.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    /* useUnifiedTopology: true */
 }).then(() => {
     console.log("connect to DB!")
 
