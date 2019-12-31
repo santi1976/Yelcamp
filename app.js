@@ -21,7 +21,17 @@ const commentRoutes = require ("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://Santo:<210418.xx>@spv-dcede.gcp.mongodb.net/test?retryWrites=true&w=majority", {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+}).then(() => {
+    console.log("connect to DB!")
+
+}).catch(err => {
+    console.log("ERROR", err.message);
+});
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))
@@ -58,3 +68,4 @@ var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server Has Started!");
 });
+
