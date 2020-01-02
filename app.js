@@ -1,3 +1,4 @@
+require("dotenv").config(); 
 const  express = require ("express");
 const  app = express();
 const  bodyParser  = require ("body-parser");
@@ -21,15 +22,21 @@ const commentRoutes = require ("./routes/comments");
 const campgroundRoutes = require("./routes/campgrounds");
 const indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb+srv://Santo:210418@cluster0-wvtu1.mongodb.net/test?retryWrites=true&w=majority", {
-    useNewUrlParser: true, 
-    /* useUnifiedTopology: true */
-}).then(() => {
-    console.log("connect to DB!")
 
-}).catch(err => {
+
+
+mongoose.connect(process.env.DATABASEURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }).then(() => {
+    console.log("connect to DB!")
+  }).catch(err => {
     console.log("ERROR", err.message);
-});
+  });
+
+
+ 
+
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -64,8 +71,8 @@ app.use("/", indexRoutes);
 app.use("/campgrounds",campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-var port = process.env.PORT || 3000;
-app.listen(port, function () {
-  console.log("Server Has Started!");
-});
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Server Running");
+    });
+ 
 
