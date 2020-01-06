@@ -7,12 +7,12 @@ var middleware = require("../middleware"); //no hace falta requerir el archivo i
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
-    //get all Visited Places from DB
+    //mostrar lugares visitados from DB
     Campground.find({}, function(err, allCampgrounds){
         if(err){
             console.log(err);
         } else {
-            res.render("campgrounds/index", {campgrounds: allCampgrounds, currentUser: req.user});
+            res.render("campgrounds/index", {campgrounds: allCampgrounds, page: "campgrounds"});
         }
     });
 });

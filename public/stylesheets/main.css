@@ -1,15 +1,18 @@
 
 .thumbnail {
     padding: 0px;
-
 }
 
 .thumbnail .caption-full {
     padding: 15px;
-
 }
 
 .delete-form {
     display: inline;
+}
+
+.blogForm {
+    width: 30%;
+    margin: 25px auto;
 }
 
